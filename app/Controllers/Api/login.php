@@ -4,7 +4,6 @@ namespace App\Controllers\Api;
 
 use CodeIgniter\RESTful\ResourceController;
 use App\Models\UserModel;
-// use App\Controllers\BaseController;
 
 
 use Firebase\JWT\JWT;  // check again if anything goes wrong

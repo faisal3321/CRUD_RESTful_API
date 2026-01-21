@@ -18,10 +18,12 @@ class AuthenticationMiddleware implements FilterInterface
 
         // 2. If header missing
         if (!$authHeader) {
-            return response()->setStatusCode(401)->setJSON([
-                'status'  => false,
-                'message' => 'Token not provided'
-            ]);
+            return service('response')
+                ->setStatusCode(401)
+                ->setJSON([
+                    'status'  => false,
+                    'message' => 'Token not provided'
+                ]);
         }
 
         // 3. Extract token
@@ -41,10 +43,12 @@ class AuthenticationMiddleware implements FilterInterface
 
         } catch (\Exception $e) {
             // 6. Invalid or expired token
-            return response()->setStatusCode(401)->setJSON([
-                'status'  => false,
-                'message' => 'Token is invalid or expired'
-            ]);
+            return service('response')
+                ->setStatusCode(401)
+                ->setJSON([
+                    'status'  => false,
+                    'message' => 'Token is invalid or expired'
+                ]);
         }
     }
 

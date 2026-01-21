@@ -7,8 +7,14 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
+
+// Register
 $routes->post('api/register', 'Api\Register::create');
+$routes->get('/register', 'AuthView::register');
+
+// Login
 $routes->post('api/login', 'Api\Login::index');
+$routes->get('login', 'AuthView::login');
 
 // used auth middleware to verify jwt token then a user can update or delete
 $routes->group('api', ['filter' => 'auth'], function($routes) {
