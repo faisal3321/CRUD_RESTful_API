@@ -11,6 +11,7 @@ $routes->options('(:any)', function () {
     return service('response')->setStatusCode(200);
 });
 
+
 // Home
 $routes->get('/', 'Home::index');
 
