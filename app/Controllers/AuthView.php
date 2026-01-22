@@ -8,13 +8,13 @@ class AuthView extends BaseController
     // GET /register
     public function register()
     {
-        return view('auth/register');
+        return view('register');
     }
 
     // Show Login Page
     // GET /login
     public function login()
     {
-        return view('auth/login');
+        return view('login');
     }
 }

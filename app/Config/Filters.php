@@ -35,8 +35,11 @@ class Filters extends BaseFilters
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
 
+        // Middleware for CORS
+        'cors'    => \App\Filters\CorsFilter::class,
+
         // Middleware for AUTH.
-        'auth'          => \App\Filters\AuthenticationMiddleware::class,
+        'auth'    => \App\Filters\AuthenticationMiddleware::class,
     ];
 
     /**
@@ -75,15 +78,11 @@ class Filters extends BaseFilters
      */
     public array $globals = [
         'before' => [
-            // 'honeypot',
-            // 'csrf',
-            // 'invalidchars',
+            'cors'
         ],
-        'after' => [
-            // 'honeypot',
-            // 'secureheaders',
-        ],
+        'after' => [],
     ];
+
 
     /**
      * List of filter aliases that works on a

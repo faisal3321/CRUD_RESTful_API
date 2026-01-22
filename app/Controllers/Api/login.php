@@ -93,6 +93,7 @@ class Login extends ResourceController
         $this->model->update($id, $updateData);
 
         return $this->respond([
+            'statusCode' => 200,
             'status'  => true,
             'message' => 'User updated successfully'
         ]);
@@ -110,6 +111,7 @@ class Login extends ResourceController
         $this->model->delete($id);
 
         return $this->respond([
+            'statusCode' => 200,
             'status'  => true,
             'message' => 'User deleted successfully'
         ]);

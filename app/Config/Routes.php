@@ -6,6 +6,13 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+
+// CORS preflight fix
+$routes->options('(:any)', function () {
+    return service('response')->setStatusCode(200);
+});
+
+// Home
 $routes->get('/', 'Home::index');
 
 // Register
@@ -14,7 +21,7 @@ $routes->get('/register', 'AuthView::register');
 
 // Login
 $routes->post('api/login', 'Api\Login::index');
-$routes->get('login', 'AuthView::login');
+$routes->get('/login', 'AuthView::login');
 
 // used auth middleware to verify jwt token then a user can update or delete
 $routes->group('api', ['filter' => 'auth'], function($routes) {
