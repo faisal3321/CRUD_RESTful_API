@@ -16,7 +16,18 @@ class App extends BaseConfig
      *
      * E.g., http://example.com/
      */
-    public string $baseURL = 'http://localhost:8080/';
+    // Force HTTPS if needed
+    public $baseURL = 'http://localhost:8080/';
+
+    // // OR if using different port
+    // class YourClassName {
+    // public $baseURL;
+    // public function __construct() {
+    //         // We move the logic here where operations are allowed
+    //         $port = isset($_SERVER['SERVER_PORT']) ? $_SERVER['SERVER_PORT'] : '8080';
+    //         $this->baseURL = 'http://localhost:' . $port . '/';
+    //     }
+    // }
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

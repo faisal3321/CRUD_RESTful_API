@@ -11,10 +11,17 @@ class AuthView extends BaseController
         return view('register');
     }
 
-    // Show Login Page
+    // Show Login, Update and Delete
     // GET /login
     public function login()
     {
         return view('login');
     }
+
+    // Dashboard
+    public function dashboard()
+    {
+        return view('dashboard');
+    }
+
 }

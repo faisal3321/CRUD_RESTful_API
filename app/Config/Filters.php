@@ -35,8 +35,8 @@ class Filters extends BaseFilters
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
 
-        // Middleware for CORS
-        'cors'    => \App\Filters\CorsFilter::class,
+        // // Middleware for CORS
+        // 'cors'    => \App\Filters\CorsFilter::class,
 
         // Middleware for AUTH.
         'auth'    => \App\Filters\AuthenticationMiddleware::class,

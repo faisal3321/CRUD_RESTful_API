@@ -25,6 +25,7 @@ class Register extends ResourceController
             return $this->failValidationErrors($this->validator->getErrors());
         }
 
+
         // Insert user (timestamps handled automatically)
         $this->model->insert([
             'userName'     => $data['userName'],
