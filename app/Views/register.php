@@ -1,70 +1,41 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Register</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        /* Keeping only the styles that aren't replaceable by Bootstrap */
         body {
             font-family: sans-serif;
             background-color: #f9f9f9;
             color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 50px;
         }
-        form {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            width: 300px;
-        }
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        button, .btn {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 10px;
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
-        }
+        /* Keeping the original button hover effect */
         button:hover { background-color: #0056b3; }
-        table {
-            background: white;
-            border-collapse: collapse;
-            width: 80%;
-            max-width: 600px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
-        th { background-color: #eee; }
-        a { color: #007bff; text-decoration: none; margin-top: 15px; }
     </style>
 </head>
 
-<body>
-    <h2>Register</h2>
+<body class="d-flex flex-column align-items-center pt-5">
+    <h2 class="mb-4">Register</h2>
 
-    <form id="registerForm">
-        <input type="text" id="name" placeholder="Name" required><br>
-        <input type="email" id="email" placeholder="Email" required><br>
-        <input type="password" id="password" placeholder="Password" required><br>
-        <button type="submit">Register</button>
+    <form id="registerForm" class="bg-white p-4 rounded shadow-sm" style="width: 300px;">
+        <div class="mb-3">
+            <input type="text" id="name" class="form-control" placeholder="Name" required>
+        </div>
+        <div class="mb-3">
+            <input type="email" id="email" class="form-control" placeholder="Email" required>
+        </div>
+        <div class="mb-3">
+            <input type="password" id="password" class="form-control" placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Register</button>
     </form>
 
-    <p>Already have an account? <a href="login">Login</a></p>
+    <p class="mt-3">Already have an account? <a href="login">Login</a></p>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         document.getElementById('registerForm').addEventListener('submit', async (e) => {
@@ -92,7 +63,7 @@
                 alert(JSON.stringify(data.errors || data.message));
             }
         });
-</script>
+    </script>
 
 </body>
-</html> 
+</html>

@@ -1,69 +1,31 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Dashboard</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        /* Keeping only the styles that aren't replaceable by Bootstrap */
         body {
             font-family: sans-serif;
             background-color: #f9f9f9;
             color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 50px;
         }
-        form {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            width: 300px;
-        }
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        button, .btn {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 10px;
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
-        }
+        /* Keeping the original button hover effect */
         button:hover { background-color: #0056b3; }
-        table {
-            background: white;
-            border-collapse: collapse;
-            width: 80%;
-            max-width: 600px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
-        th { background-color: #eee; }
-        a { color: #007bff; text-decoration: none; margin-top: 15px; }
     </style>
 </head>
 
-<body>
+<body class="d-flex flex-column align-items-center pt-5">
 
-<h2>User Dashboard</h2>
+<h2 class="mb-4">User Dashboard</h2>
 
-<div id="authCheck">
+<div id="authCheck" class="mb-4">
     Checking authentication...
 </div>
 
-<table id="userTable" style="display:none;">
-    <thead>
+<table id="userTable" class="table table-bordered shadow-sm" style="display:none; width: 80%; max-width: 600px;">
+    <thead class="table-light">
         <tr>
             <th>Name</th>
             <th>Email</th>
@@ -72,6 +34,9 @@
     </thead>
     <tbody id="userData"></tbody>
 </table>
+
+<!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
     // Check authentication on page load
@@ -83,7 +48,7 @@
         const userTable = document.getElementById('userTable');
         
         if (!token || !user) {
-            authCheck.innerHTML = '<p style="color:red;">You are not logged in. Redirecting to login page...</p>';
+            authCheck.innerHTML = '<p class="text-danger">You are not logged in. Redirecting to login page...</p>';
             setTimeout(() => {
                 window.location.href = '/login';
             }, 2000);
@@ -100,14 +65,14 @@
                     <td>${userData.userName}</td>
                     <td>${userData.userEmail}</td>
                     <td>
-                        <button onclick="updateUser()">Update</button>
-                        <button onclick="deleteUser()">Delete</button>
-                        <button onclick="logout()">Logout</button>
+                        <button class="btn btn-primary mb-2" onclick="updateUser()">Update</button>
+                        <button class="btn btn-danger mb-2" onclick="deleteUser()">Delete</button>
+                        <button class="btn btn-secondary mb-2" onclick="logout()">Logout</button>
                     </td>
                 </tr>
             `;
         } catch (error) {
-            authCheck.innerHTML = '<p style="color:red;">Error loading user data. Please login again.</p>';
+            authCheck.innerHTML = '<p class="text-danger">Error loading user data. Please login again.</p>';
             localStorage.clear();
             setTimeout(() => {
                 window.location.href = '/login';
